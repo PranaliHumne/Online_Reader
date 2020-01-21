@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserHomePageService } from '../home.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as toastr from 'toastr'
+
 
 
 @Component({
@@ -29,6 +31,7 @@ export class UserHomeComponent implements OnInit {
         .subscribe(response =>{
             if(response['status']=='Success')
             {
+                toastr.success('added to Library')
                 this.books = response['data']
                 console.log(this.books)
             }
@@ -48,6 +51,8 @@ export class UserHomeComponent implements OnInit {
         .subscribe(response =>{
             if(response['status'] == 'Success')
             {
+                alert('added to Library')
+                //toastr.success('Added to library')
                 console.log(this.User_id)
                 console.log(response['status'])
             }
@@ -63,4 +68,32 @@ export class UserHomeComponent implements OnInit {
         this.router.navigate(['/show-pdf'+'/'+book_id])
     }
 
+    onLike(book_id: number){
+        this.userHoemePageservice
+        .addLike(book_id)
+        .subscribe(response =>{
+            if(response['status'] == 'Success')
+            {
+                alert('like')
+                //toastr.success('Added to library')
+                console.log(this.User_id)
+                console.log(response['status'])
+            }
+        })   
+    }
+
+    likeCount(book_id:number)
+    {
+        this.userHoemePageservice
+        .getLike(book_id)
+        .subscribe(response =>{
+            if(response['status'] == 'Success')
+            {
+                alert('like')
+                //toastr.success('Added to library')
+                console.log(this.User_id)
+                console.log(response['status'])
+            }
+        })   
+    }
 }

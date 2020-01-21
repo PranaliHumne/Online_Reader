@@ -28,4 +28,18 @@ export class UserHomePageService{
         return this.http.post(this.url+'/library/user'+'/'+book_id,body)
     }
 
+    addLike(book_id : number)
+    {
+        const body = {
+
+        }
+        return this.http.post(this.url+'/like/likes/'+book_id,body)
+    }
+
+    getLike(book_id : number)
+    {
+        return this.http.get(this.url+'/like/'+book_id)
+    }
+    
+
 }

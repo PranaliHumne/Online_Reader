@@ -25,13 +25,16 @@
                      <div><h4>{{book.category_title}}</h4></div>
                      <div class="rating"><h5>{{book.rating}}/5</h5></div>
                      <div>
-                         <a (click) = "onSelect(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></a>
-                        <button  type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                         <a (click) = "onSelect(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-list"></i></a>
+                        <button (click) = "onLike(book.book_id)"  type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
                                 <i class="glyphicon glyphicon-thumbs-up"></i>
                           </button>
-                          <a (click) = "onSelect2(book.book_id)" routerLink = "/show-pdf" class="btn btn-success"><i class="glyphicon glyphicon-plus">
+                          <a (click) = "likeCount(book.book_id)" ><h4></h4></a>
+                          
+
+                          <!-- <a (click) = "onSelect2(book.book_id)" routerLink = "/show-pdf" class="btn btn-success"><i class="glyphicon glyphicon-plus">
                             <a href="http://localhost:4000/{{books[0].bookFile}}"></a>
-                          </i></a>
+                          </i></a> -->
                           
                      </div>
             </div>

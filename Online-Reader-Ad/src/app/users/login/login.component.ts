@@ -45,8 +45,6 @@ export class UserLoginComponent implements OnInit {
                     if (this.rememberme) {
                         sessionStorage['login_status'] = '1'
                     }
-
-
                     localStorage['login_status'] = '1'
 
                     localStorage['User_name'] = response['data']['User_name']
