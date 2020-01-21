@@ -1,0 +1,22 @@
+select u.User_name,b.book_name,l.library_id from users u inner join library l on (l.User_id = u.User_id) inner join books b on(b.book_id = l.book_id);
+
+select a.[Id], a.[Name], b.[NickName], b.[DateStart] 
+from [Table_A] AS a
+INNER JOIN [Table_B] AS b
+ON b.[IdTableA] = a.[Id]
+
+
+
+SELECT users.name AS user, products.name AS favorite FROM users JOIN products ON users.favorite_product = products.id
+
+
+SELECT User_id AS user,library_id AS lib  FROM  users JOIN  library  ON users.User_id = library.library_id
+
+
+`select movie.*, genre.title as genre_title from movie, genre where movie.genre = genre.id and movie.id = ${id}`
+
+`select books.*, categories.category_title from books, categories where books.category_id = categories.category_id and book_id = ${id}`
+
+`select library.*,users.User_name from users,books.book_name as book_name from books, books where books.book_id = libraries.book_id and User_id = ${id}`
+
+select library.*, books.book_name from librabry, books where library.book_id = books.book_id and User_id = ${id}

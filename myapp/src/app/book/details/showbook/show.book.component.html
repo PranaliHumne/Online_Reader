@@ -1,0 +1,4 @@
+ <h1 *ngIf="books != undifined"></h1> 
+<div class="book_detail_container" *ngIf="books != undefined">
+<embed ng-src="{{books[0].bookFile}}.pdf" style="width:200px;height:200px;"></embed>
+</div>

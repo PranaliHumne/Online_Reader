@@ -1,0 +1,69 @@
+<!-- <h1>Books</h1>
+<div class="row">
+    <div>
+<button (click) = "onAddBook" style = "margin-bottom:10px" routerLink ="/book-add" class="btn btn-success pull-right">Add Books</button>
+
+<table class="table table-striped ">
+    <thead>
+        <tr>
+            <th>no</th>
+            <th>Images</th>
+            <th>title</th>
+            <th>Author</th>
+            <th>part</th>
+            <th>publish date</th>
+            <th>rating</th>
+            <th>status</th>
+            <th>descripation</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let book of books; let index = index">
+            <td>{{index+1}}</td>
+            <td>
+                <img src="http://localhost:4000/{{book.thumbnail}}" alt=""> 
+            </td>
+            <td>{{book.book_name}}</td>
+            <td>{{book.auther_name}}</td>
+            <td>{{book.part}}</td>
+            <td>{{book.publish_date}}</td>
+            <td>{{book.rating}}</td>
+            <td>{{book.status}}</td>
+            <td>{{book.descripation}}</td>
+            <td>
+                <a (click) = "onSelect(book.book_id)" class="btn btn-success">Update</a>
+                <a (click) = "onDelete(book.book_id)" style = "margin:10px" routerLink = "/book-list" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div> -->
+
+
+<!-- <h1>Books</h1> -->
+
+<div class="container">
+    <header>
+        <h1>Books</h1>
+    </header>
+</div>
+
+<div class="container">
+    <button (click) = "onAddBook" style = "margin-bottom:10px" routerLink ="/book-add" class="btn btn-success pull-right add-book">Add Books</button>
+</div>
+<div class="collection">
+        <!-- <div class="col-md-1"></div> -->
+            <div class="col-md-2 library.lbook" *ngFor="let book of books">
+                <div class="stroy">
+                     <img (click) = "onSelect1(book.book_id)" class = "book" src="http://localhost:4000/{{book.thumbnail}}" alt="">
+                     <div class="title"><h3>{{book.book_name}}</h3></div>
+                     <div class="rating"><h3>{{book.rating}}/5</h3></div>
+                     <div><a (click) = "onSelect(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-pencil"></i></a>
+                         <a (click) = "onDelete(book.book_id)" style = "margin:10px "  routerLink = "/book-list" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></div>
+                </div>
+            </div>
+        <!-- <div class="col-md-2"></div> -->
+</div>
+
