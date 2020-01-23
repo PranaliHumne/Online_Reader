@@ -16,6 +16,7 @@ import { LibraryComponent } from './library/showLibrary/library.component';
 import { LibraryService } from './library/library.service';
 import { AddToLibraryComponent } from './library/addToLibrary/addToLibrary.component';
 import { ShowPdfComponent } from './book/details/showbook/show.book.component';
+import { LogOutComponent } from './loginPage/logOut/logout.component';
 
 const routes: Route[] =
 [
@@ -27,7 +28,8 @@ const routes: Route[] =
   {path: 'book-detail/:id', component : bookDetailComponent},
   {path: 'user-library', component: LibraryComponent},
   {path: 'addTo-library', component: AddToLibraryComponent},
-  {path: 'show-pdf/:id', component: ShowPdfComponent}
+  {path: 'show-pdf/:id', component: ShowPdfComponent},
+  
   
 ]
 
@@ -38,6 +40,7 @@ const routes: Route[] =
     UserHomeComponent,
     UserLoginComponent,
     UserRegisterComponent,
+    LogOutComponent,
     
     bookDetailComponent,
     LibraryComponent,
