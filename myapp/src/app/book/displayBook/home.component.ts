@@ -14,16 +14,21 @@ import * as toastr from 'toastr'
 export class UserHomeComponent implements OnInit {
     books = []
     User_id = 0
+    likes = []
+    like_count 
 
     constructor(private router : Router,
         private userHoemePageservice : UserHomePageService)
      {
         this.showAllbooks()
         this.User_id = localStorage['User_id']
-            console.log(this.User_id)
+            console.log(this.User_id)       
+
      }
 
     ngOnInit() { }
+
+
 
     showAllbooks(){
         this.userHoemePageservice
@@ -74,26 +79,13 @@ export class UserHomeComponent implements OnInit {
         .subscribe(response =>{
             if(response['status'] == 'Success')
             {
-                alert('like')
+                alert('Like')
                 //toastr.success('Added to library')
                 console.log(this.User_id)
-                console.log(response['status'])
+                console.log(response['data'])
             }
         })   
     }
 
-    likeCount(book_id:number)
-    {
-        this.userHoemePageservice
-        .getLike(book_id)
-        .subscribe(response =>{
-            if(response['status'] == 'Success')
-            {
-                alert('like')
-                //toastr.success('Added to library')
-                console.log(this.User_id)
-                console.log(response['status'])
-            }
-        })   
-    }
+    
 }

@@ -36,10 +36,10 @@ export class UserHomePageService{
         return this.http.post(this.url+'/like/likes/'+book_id,body)
     }
 
-    getLike(book_id : number)
+    getLike()
     {
-        return this.http.get(this.url+'/like/'+book_id)
+        return this.http.get(this.url+'/like')
     }
-    
+    get
 
 }

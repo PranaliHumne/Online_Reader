@@ -127,7 +127,6 @@ router.get('/comments/:id',(request,response) =>{
 // })
 
 
-router.post('/',)
 module.exports = router
 
   //         const thumbnail = request.files[0]

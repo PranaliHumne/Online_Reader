@@ -40,4 +40,32 @@ export class LibraryComponent implements OnInit {
         })
 
     }
+
+    onLike(book_id: number){
+        this.Service
+        .addLike(book_id)
+        .subscribe(response =>{
+            if(response['status'] == 'Success')
+            {
+                alert('Like')
+                //toastr.success('Added to library')
+                console.log(this.User_id)
+                console.log(response['data'])
+            }
+        })   
+    }
+
+    onDelete(book_id:number){
+        this.Service
+        .DeleteBooks(book_id,this.User_id)
+        .subscribe(response =>{
+            if(response['status'] == 'Success')
+            {
+                alert('Like')
+                //toastr.success('Added to library')
+                console.log(this.User_id)
+                console.log(response['data'])
+            }
+        })
+    }
 }
