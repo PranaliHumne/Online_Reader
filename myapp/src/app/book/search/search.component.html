@@ -1,0 +1,25 @@
+
+<div class="col md-1"></div>
+<div >
+<input [(ngModel)]="book_name" style="margin: 5px; padding: 5px"  class="col-md-10"  href="#"  type="text" placeholder="Search...">
+<button (click) = "loadSearchBook()" class="btn btn-success"><span class="glyphicon glyphicon-search"></span> </button>
+</div>
+<div class="col-md-1"></div>
+<div class="book" *ngIf="book != undefined">
+<div class="book" *ngIf="book.length > 0">
+    <div *ngFor="let books of book">
+        <div class="col-md-2">
+            <img class = "book" src="http://localhost:4000/{{books.thumbnail}}" alt="">
+        </div>
+       
+            <div class="title"><h3 >{{books.book_name}}</h3></div>
+            <div><h4>{{books.category_title}}</h4></div>
+            <div class="rating"><h5>{{books.rating}}/5</h5></div>
+            <div>
+               <a>{{books.likes}}<i class="glyphicon glyphicon-thumbs-up" style="margin: 5px"></i></a> 
+            </div>
+        
+
+    </div>
+</div>
+</div>

@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AppComponent } from './app.component';
 import { UserHomeComponent } from './book/displayBook/home.component';
 import { UserHomePageService } from './book/home.service';
@@ -15,16 +13,16 @@ import { bookDetailComponent } from './book/details/book.detail.component';
 import { LibraryComponent } from './library/showLibrary/library.component';
 import { LibraryService } from './library/library.service';
 import { AddToLibraryComponent } from './library/addToLibrary/addToLibrary.component';
-import { ShowPdfComponent } from './book/details/showbook/show.book.component';
 import { LogOutComponent } from './loginPage/logOut/logout.component';
 import { SearchBookComponent } from './book/search/search.component';
 import { BookCategoryComponent } from './book/category/book.category';
 import { UserProfileComponent } from './profile/profile.component';
 import { UserProfileServie } from './profile/user.profile.service';
+import { ShowPdfComponent } from './book/showbook/show.book.component';
 
 const routes: Route[] =
 [
-  {path:'', component: UserLoginComponent},
+  {path:'', component: UserHomeComponent},
   {path: 'user-login', component: UserLoginComponent },
   {path: 'user-register', component: UserRegisterComponent},
 
@@ -58,7 +56,6 @@ const routes: Route[] =
 
   ],
   imports: [
-    PdfViewerModule,
     HttpClientModule,
     BrowserModule,
     FormsModule,

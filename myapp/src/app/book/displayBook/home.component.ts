@@ -36,7 +36,7 @@ export class UserHomeComponent implements OnInit {
         .subscribe(response =>{
             if(response['status']=='Success')
             {
-                toastr.success('added to Library')
+                //toastr.success('added to Library')
                 this.books = response['data']
                 console.log(this.books)
             }

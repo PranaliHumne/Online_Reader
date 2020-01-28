@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserHomePageService } from '../../home.service';
+import { UserHomePageService } from '../home.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @Component({
     selector: 'show-pdf',

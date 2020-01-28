@@ -49,4 +49,11 @@ export class UserHomePageService{
     {
         return this.http.get(this.url+'/categories/'+category_id)
     }
+
+    searchBooks(book_name : String){
+        const body = {
+            book_name : book_name
+        }
+        return this.http.post(this.url+'/books/search',body)
+    }
 }
