@@ -40,9 +40,11 @@ router.post('/',upload.any(),(request,response) =>{
     const{book_name,auther_name,category_id,part,publish_date,rating,status,descripation} = request.body
         const thumbnail = request.files[0].filename
         const bookFile = request.files[1].filename
+        console.log(bookFile)
         console.log(request.files)
         const connection = db.connect()
         const statement = `insert into  books(book_name,auther_name,category_id,part,publish_date,rating,status,descripation,thumbnail,bookFile) values('${book_name}','${auther_name}','${category_id}',${part},'${publish_date}',${rating},'${status}','${descripation}','${thumbnail}','${bookFile}')`
+        console.log(statement)
         connection.query(statement,(error,data)=>{
             connection.end()
              response.send(utils.createResult(error,data))
@@ -70,6 +72,7 @@ router.get('/details/:id',(request,response)=>{
     const statement = `select books.*, categories.category_title from books, categories where books.category_id = categories.category_id and book_id = ${id}`
     connection.query(statement,(error,data)=>{
         connection.end()
+        console.log(statement)
         response.send(utils.createResult(error,data))
         console.log(error)
     })
@@ -112,6 +115,18 @@ router.get('/comments/:id',(request,response) =>{
         console.log(error)
     })
 
+})
+router.post('/search',(request,response) =>{
+    const{book_name} = request.body
+    const connection = db.connect()
+    const statement = `select * from books where book_name like '%${book_name}%'`
+    connection.query(statement,(error,data) =>{
+        connection.end()
+        console.log(statement)
+        response.send(utils.createResult(error,data))
+
+    })
+    
 })
 
 

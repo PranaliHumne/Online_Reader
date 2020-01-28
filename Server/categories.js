@@ -73,4 +73,15 @@ router.put('/:id',(request,response) =>{
     })
 })
 
+router.get('/:id',(request,response) =>{
+    const{id} = request.params
+    const connection = db.connect()
+    const statement = `select books.*, categories.category_title from books, categories where books.category_id = ${id} and categories.category_id = ${id}`
+    connection.query(statement,(error,data) =>{
+        connection.end()
+        response.send(utils.createResult(error,data))
+        console.log(error)
+    })
+})
+
 module.exports = router

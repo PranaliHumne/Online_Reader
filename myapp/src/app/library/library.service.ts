@@ -28,13 +28,10 @@ export class LibraryService
         return this.http.post(this.url+'like/likes/'+book_id,body)
     }
 
-    DeleteBooks(book_id : number,User_id: number){
-        const body = {
-            User_id : User_id,
-            //book_id: book_id
-        }
+    DeleteBooks(library_id : number)
+    {
         
-        return this.http.delete(this.url+'library/'+book_id)
+        return this.http.delete(this.url+'library/'+library_id)
     }
 
 

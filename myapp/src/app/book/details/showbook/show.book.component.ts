@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserHomePageService } from '../../home.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @Component({
     selector: 'show-pdf',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class ShowPdfComponent implements OnInit {
-   books = []
+    book:any
    categories = []
     book_name =''
     auther_name = ''
@@ -34,22 +35,11 @@ export class ShowPdfComponent implements OnInit {
             {
                 this.service.getBookDetails(this.book_id)
                 .subscribe(response =>{
+                    console.log("show pdf:"+response)
                     if(response['status'] == 'Success')
                     {
-                        this.books = response['data']
-                        console.log(this.books)
-                        // const book = response['data']
-                        // console.log(book)
-                        // this.book_name = book[0].book_name
-                        // this.auther_name = book[0].auther_name
-                        // this.category_id = book[0].category_id
-                        // this.part = book[0].part
-                        // this.publish_date = book[0].publish_date
-                        // this.rating = book[0].rating
-                        // this.status = book[0].status
-                        // this.descripation = book[0].descripation
-                        // this.thumbnail = book[0].thubmnail
-                        
+                        this.book = response['data']
+                        console.log(this.book[0].bookFile)
                     }else{
                         console.log(response['error'])
                     }

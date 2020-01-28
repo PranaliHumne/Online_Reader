@@ -17,6 +17,10 @@ import { LibraryService } from './library/library.service';
 import { AddToLibraryComponent } from './library/addToLibrary/addToLibrary.component';
 import { ShowPdfComponent } from './book/details/showbook/show.book.component';
 import { LogOutComponent } from './loginPage/logOut/logout.component';
+import { SearchBookComponent } from './book/search/search.component';
+import { BookCategoryComponent } from './book/category/book.category';
+import { UserProfileComponent } from './profile/profile.component';
+import { UserProfileServie } from './profile/user.profile.service';
 
 const routes: Route[] =
 [
@@ -29,6 +33,8 @@ const routes: Route[] =
   {path: 'user-library', component: LibraryComponent},
   {path: 'addTo-library', component: AddToLibraryComponent},
   {path: 'show-pdf/:id', component: ShowPdfComponent},
+  {path: 'search-book', component : SearchBookComponent},
+  {path: 'category', component : BookCategoryComponent}
   
   
 ]
@@ -41,11 +47,15 @@ const routes: Route[] =
     UserLoginComponent,
     UserRegisterComponent,
     LogOutComponent,
+    UserProfileComponent,
     
     bookDetailComponent,
     LibraryComponent,
     AddToLibraryComponent,
-    ShowPdfComponent
+    ShowPdfComponent,
+    SearchBookComponent,
+    BookCategoryComponent
+
   ],
   imports: [
     PdfViewerModule,
@@ -57,7 +67,8 @@ const routes: Route[] =
   providers: [
     UserHomePageService,
     UserLoginServie,
-    LibraryService
+    LibraryService,
+    UserProfileServie
   ],
   bootstrap: [AppComponent]
 })

@@ -31,17 +31,19 @@ router.post('/register',(request,response)=>{
     const connection = db.connect()
 
     const statement = `select * from users where email = '${email}'`
+    console.log(statement)
     connection.query(statement,(error,users)=>{
         if(users.length == 0){
             const statement = `insert into users(full_name,User_name,email,password) values('${full_name}','${User_name}','${email}','${encryptedPassword}')`
             connection.query(statement,(error,data)=>{
                 connection.end()
+                console.log(statement)
                 console.log(error);
                 response.send(utils.createResult(error,data))
             })
         }
         else{
-            console.log(error);
+            //console.log(error);
             connection.end()
             response.send(utils.createResult('email exits, please use another email',null))
         }

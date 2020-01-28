@@ -40,6 +40,13 @@ export class UserHomePageService{
     {
         return this.http.get(this.url+'/like')
     }
-    get
-
+    
+    getCategory()
+    {
+        return this.http.get(this.url+'/categories')
+    }
+    getCategoryBooks(category_id : number)
+    {
+        return this.http.get(this.url+'/categories/'+category_id)
+    }
 }

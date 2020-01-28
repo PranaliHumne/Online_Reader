@@ -27,7 +27,7 @@ router.get('/',(request,response)=>{
 router.get('/:id',(request,response)=>{
     const{id} = request.params
     const connection = db.connect()
-    const statement = `select library.*, books.book_name,books.rating,books.thumbnail,books.bookFile,books.likes from library, books where library.book_id = books.book_id and library.User_id = ${id}`
+    const statement = `select library.*, books.book_name,books.auther_name,books.part,books.publish_date,books.descripation,books.status,books.rating,books.thumbnail,books.bookFile,books.likes from library, books where library.book_id = books.book_id and library.User_id = ${id}`
     connection.query(statement,(error,data)=>{
 
         
@@ -37,15 +37,15 @@ router.get('/:id',(request,response)=>{
     })
 })
 
-router.delete('/:bookId',(request,response) =>{
-    const{bookId} = request.params
-    const{User_id} = request.body
+router.delete('/:library_id',(request,response) =>{
+    const{library_id} = request.params
     const connection = db.connect()
     console.log(request.body)
 
-    const statement = `delete from library where book_id = ${bookId}  and User_id = ${User_id}`
+    const statement = `delete from library where library_id = ${library_id}`
     connection.query(statement,(error,data) =>{
         connection.end()
+        console.log(statement)
         response.send(utils.createResult(error,data))
         console.log(error)
     }) 

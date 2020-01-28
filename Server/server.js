@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json())
 app.use(express.static('thumbnails'));
-app.use(express.static('bookFile'));
+//app.use(express.static('bookFile'));
 app.use('/users',userRouter)
 app.use('/books',bookRouter)
 app.use('/categories',categoryRouter)
@@ -31,6 +31,7 @@ app.use('/view',viewRouter)
 app.use('/like',likeRouter)
 app.use('/comments',commentsRouter)
 app.use('/user_home', userHomePg)
+
 
 app.listen( 4000,'0.0.0.0',()=>{
     console.log('server started on 4000........')

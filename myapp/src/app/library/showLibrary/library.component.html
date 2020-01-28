@@ -11,7 +11,8 @@
                      <div class="title"><h3 >{{book.book_name}}</h3></div>
                      <div><h4>{{book.category_title}}</h4></div>
                      <div class="rating"><h5>{{book.rating}}/5</h5></div>
-                     <div><button  (click) = "onDelete(book.book_id)" class="btn btn-success "><i class="glyphicon glyphicon-trash"></i></button>
+                     <div>
+                        <button  (click) = "onDelete(book.library_id)" class="btn btn-success "><i class="glyphicon glyphicon-trash"></i></button>
                         <button (click) = "onLike(book.book_id)" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin: 10px">
                                 <i class="glyphicon glyphicon-thumbs-up"></i>
                         </button>

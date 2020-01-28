@@ -1,0 +1,31 @@
+
+<div class="book1" *ngIf="categories != undefined">
+        <h1>Categories</h1>
+        <h4 *ngIf="categories.length == 0">There are no products....</h4>
+        <div *ngIf="categories.length > 0">
+            <div class = "col-md-2" *ngFor="let category of categories">
+            <button (click) = "onSelect(category.category_id)" class="btn btn-success">
+                {{category.category_title}}
+            </button>
+            </div>  
+        </div>
+        <div class="book" *ngIf="books.length > 0">
+                <div *ngFor="let book of books">
+                    <div class="col-md-2">
+                        <img class = "book" src="http://localhost:4000/{{book.thumbnail}}" alt="">
+                    </div>
+                   
+                        <div class="title"><h3 >{{book.book_name}}</h3></div>
+                        <div><h4>{{book.category_title}}</h4></div>
+                        <div class="rating"><h5>{{book.rating}}/5</h5></div>
+                        <div>
+                           <a>{{book.likes}}<i class="glyphicon glyphicon-thumbs-up" style="margin: 5px"></i></a> 
+                        </div>
+                    
+   
+            </div>
+        </div>
+
+</div>
+    
+    

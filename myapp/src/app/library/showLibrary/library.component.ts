@@ -55,17 +55,17 @@ export class LibraryComponent implements OnInit {
         })   
     }
 
-    onDelete(book_id:number){
+    onDelete(library_id:number){
         this.Service
-        .DeleteBooks(book_id,this.User_id)
+        .DeleteBooks(library_id)
         .subscribe(response =>{
             if(response['status'] == 'Success')
             {
-                alert('Like')
+                alert('Deleted From Library')
                 //toastr.success('Added to library')
                 console.log(this.User_id)
                 console.log(response['data'])
             }
         })
-    }
+     }
 }

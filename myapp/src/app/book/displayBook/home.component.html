@@ -26,6 +26,7 @@
                      <div class="rating"><h5>{{book.rating}}/5</h5></div>
                      <div>
                          <a (click) = "onSelect(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-list"></i></a>
+                         <a (click) = "onSelect2(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-apple"></i></a>
                         <button (click) = "onLike(book.book_id)"  type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin: 10px">
                                 <i class="glyphicon glyphicon-thumbs-up"></i>
                           </button>
