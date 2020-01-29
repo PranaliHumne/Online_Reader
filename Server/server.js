@@ -21,12 +21,11 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json())
 app.use(express.static('thumbnails'));
-//app.use(express.static('bookFile'));
+app.use(express.static('profilePhoto'));
 app.use('/users',userRouter)
 app.use('/books',bookRouter)
 app.use('/categories',categoryRouter)
 app.use('/library',libraryRouter)
-//app.use('/books/addBook',addBookRouter)
 app.use('/view',viewRouter)
 app.use('/like',likeRouter)
 app.use('/comments',commentsRouter)

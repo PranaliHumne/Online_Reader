@@ -2,6 +2,8 @@ const db = require('./db')
 const utils = require('./utils')
 const express = require('express')
 const cryptoJs = require('crypto-js')
+const multer = require('multer')
+const upload = multer({ dest: 'profilePhoto/'})
 
 const router = express.Router()
 
@@ -18,7 +20,8 @@ router.get('/',(request,response)=>{
                 User_id: user['User_id'],
                 User_name: user['User_name'],
                 email: user['email'],
-                full_name : user['full_name']
+                full_name : user['full_name'],
+                thumbnail : user['thumbnail']
             })
         }
         response.send(utils.createResult(error,users))
@@ -69,7 +72,7 @@ router.post('/login',(request,response)=>{
             const info ={
                 User_name:user['User_name'],
                 email: user['email'],
-                User_id: user['User_id']
+                User_id: user['User_id']                
             }
             response.send(utils.createResult(null,info))
         }
@@ -86,5 +89,27 @@ router.delete('/:id',(request,response) =>{
     })
 })
 
+router.put('/editProfie/:id',upload.any(),(request,response) =>{
+    const {id} = request.params
+    const thumbnail = request.files[0].filename
+    const {User_name,email,password} = request.body
+    const connection = db.connect()
+    const statement = `update users set User_name = ${User_name}, email = ${email}, password = ${password},thumbnail = ${thumbnail} where User_id = ${id} `
+    connection.query(statement,(error,data) =>{
+        connection.end()
+        response.send(utils.createResult(error,data))
+    })
+})
+
+router.get('/:id',(request,response) =>{
+    const{id} = request.params
+    const connection = db.connect()
+    const statement = `select * from users where User_id = ${id}`
+    connection.query(statement,(error,data) =>{
+        connection.end()
+        console.log(statement)
+        response.send(utils.createResult(error,data))
+    })
+})
 
 module.exports = router
