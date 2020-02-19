@@ -1,0 +1,36 @@
+<!-- <div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <a class="navbar-brand" routerLink = "/book-list">Home</a>
+          <a class="navbar-brand" routerLink = "/category-list">Categoy</a>
+          <a class="navbar-brand" routerLink = "/user-list">User List</a>
+
+
+    </nav>
+</div> -->
+
+<div class="container">
+    <header>
+        <h1>Books</h1>
+    </header>
+</div>
+
+    <div class="responsive">
+            <div class="col-md-2 library.lbook" *ngFor="let book of books">
+                <div class="stroy">
+                     <img (click) = "onSelect1(book.book_id)" class = "book" src="http://localhost:4000/{{book.thumbnail}}" alt="">
+                     <div class="title"><h3 >{{book.book_name}}</h3></div>
+                     <div><h4>{{book.category_title}}</h4></div>
+                     <div class="rating"><h5>{{book.rating}}/5</h5></div>
+                     <div>
+                         <a (click) = "onSelect(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-list"></i></a>
+                         <a (click) = "onSelect2(book.book_id)"  class="btn btn-success"><i class="glyphicon glyphicon-apple"></i></a>
+                        <button (click) = "onLike(book.book_id)"  type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin: 10px">
+                                <i class="glyphicon glyphicon-thumbs-up"></i>
+                          </button>
+                        <a>{{book.likes}}<i class="glyphicon glyphicon-thumbs-up" style="margin: 5px"></i></a>                     
+                     </div>
+            </div>
+    </div>

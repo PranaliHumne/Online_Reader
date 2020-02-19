@@ -2,8 +2,6 @@ const db = require('./db')
 const utils = require('./utils')
 const express = require('express')
 const cryptoJs = require('crypto-js')
-const multer = require('multer')
-const upload = multer({ dest: 'profilePhoto/'})
 
 const router = express.Router()
 
@@ -62,10 +60,11 @@ router.post('/login',(request,response)=>{
     connection.query(statement,(error,users)=>{
         connection.end()
         console.log(statement)
-        console.log(error)
+        console.log(users)
         if(users.length == 0)
         {
             response.send(utils.createResult('user does not exits'))
+
         }
         else{
             const user = users[0]
@@ -83,18 +82,6 @@ router.delete('/:id',(request,response) =>{
     const {id} = request.params
     const connection = db.connect()
     const statement = `delete from users where User_id = ${id}`
-    connection.query(statement,(error,data) =>{
-        connection.end()
-        response.send(utils.createResult(error,data))
-    })
-})
-
-router.put('/editProfie/:id',upload.any(),(request,response) =>{
-    const {id} = request.params
-    const thumbnail = request.files[0].filename
-    const {User_name,email,password} = request.body
-    const connection = db.connect()
-    const statement = `update users set User_name = ${User_name}, email = ${email}, password = ${password},thumbnail = ${thumbnail} where User_id = ${id} `
     connection.query(statement,(error,data) =>{
         connection.end()
         response.send(utils.createResult(error,data))

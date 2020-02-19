@@ -16,15 +16,16 @@ import { AddToLibraryComponent } from './library/addToLibrary/addToLibrary.compo
 import { LogOutComponent } from './loginPage/logOut/logout.component';
 import { SearchBookComponent } from './book/search/search.component';
 import { BookCategoryComponent } from './book/category/book.category';
-import { UserProfileComponent } from './profile/profile.component';
 import { UserProfileServie } from './profile/user.profile.service';
 import { ShowPdfComponent } from './book/showbook/show.book.component';
+import { EditProfileComponent } from './profile/EditProfile/profile.component';
 
 const routes: Route[] =
 [
   {path:'', component: UserHomeComponent},
   {path: 'user-login', component: UserLoginComponent },
   {path: 'user-register', component: UserRegisterComponent},
+  {path: 'edit-Profile', component : EditProfileComponent},
 
   {path: 'book-list', component: UserHomeComponent},
   {path: 'book-detail/:id', component : bookDetailComponent},
@@ -45,7 +46,7 @@ const routes: Route[] =
     UserLoginComponent,
     UserRegisterComponent,
     LogOutComponent,
-    UserProfileComponent,
+    EditProfileComponent,
     
     bookDetailComponent,
     LibraryComponent,

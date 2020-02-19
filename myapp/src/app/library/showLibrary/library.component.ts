@@ -62,6 +62,7 @@ export class LibraryComponent implements OnInit {
             if(response['status'] == 'Success')
             {
                 alert('Deleted From Library')
+                this.showallLibraryBook()
                 //toastr.success('Added to library')
                 console.log(this.User_id)
                 console.log(response['data'])

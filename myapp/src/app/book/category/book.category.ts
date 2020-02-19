@@ -43,4 +43,7 @@ export class BookCategoryComponent implements OnInit {
         })
 
     }
+    onSelect1(book_id:number){
+        this.router.navigate(['/book-detail'+'/'+book_id])
+    }
 }

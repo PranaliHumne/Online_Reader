@@ -19,10 +19,12 @@
             <p>{{book[0].descripation}}</p>
             
          </div>
-         <div><a  class="btn btn-success "><i class="glyphicon glyphicon-plus"></i></a>
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    <i class="glyphicon glyphicon-thumbs-up"></i>
-              </button>
+         <div><a (click) = "onSelect(book[0].book_id)" class="btn btn-success "><i class="glyphicon glyphicon-plus"></i></a>
+            <button (click) = "onLike(book[0].book_id)"  type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin: 10px">
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+          </button>
+          <a>{{book[0].likes}}<i class="glyphicon glyphicon-thumbs-up" style="margin: 5px"></i></a>   
+         <div> <a (click) = "onSelect2(book[0].book_id)"  class="btn btn-success">Read</a>  </div>                
          </div>
 
     </div>

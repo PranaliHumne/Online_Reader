@@ -1,0 +1,8 @@
+  <h1 *ngIf="book != undefined"> </h1>
+  <div class="book_detail_container" *ngIf="book != undefined">
+       <h1>{{book[0].book_name}}</h1>
+       <div class="book_detail_container">
+          <p>Open a PDF file <a href="http://localhost:4000/ha.pdf">{{book[0].book_name}}</a>.</p>
+          <embed src="http://localhost:4000/ha.pdf" type="application/pdf"   height="250px" width="250">
+      </div>
+      </div>

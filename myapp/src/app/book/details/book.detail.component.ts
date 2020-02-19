@@ -33,38 +33,53 @@ export class bookDetailComponent implements OnInit
             
             this.bookId = this.activatedRoute.snapshot.params['id'] 
             console.log(this.bookId)
-            
-            if(this.bookId)
-            {
-                this.bookService.getBookDetails(this.bookId)
-                .subscribe(response =>{
-                    if(response['status'] == 'Success')
-                    {
-                        this.book = response['data']
-                        console.log(this.book)
-                        // const book = response['data']
-                        // console.log(book)
-                        // this.book_name = book[0].book_name
-                        // this.auther_name = book[0].auther_name
-                        // this.category_id = book[0].category_id
-                        // this.part = book[0].part
-                        // this.publish_date = book[0].publish_date
-                        // this.rating = book[0].rating
-                        // this.status = book[0].status
-                        // this.descripation = book[0].descripation
-                        // this.thumbnail = book[0].thubmnail
-                        
-                    }
-                })
-                    
-                
-            }
-
+            this.detailBook()
         }
 
     ngOnInit() { }
+
+    detailBook(){
+        if(this.bookId)
+        {
+            this.bookService.getBookDetails(this.bookId)
+            .subscribe(response =>{
+                if(response['status'] == 'Success')
+                {
+                    this.book = response['data']
+                    console.log(this.book)
+                    // const book = response['data']
+                    // console.log(book)
+                    // this.book_name = book[0].book_name
+                    // this.auther_name = book[0].auther_name
+                    // this.category_id = book[0].category_id
+                    // this.part = book[0].part
+                    // this.publish_date = book[0].publish_date
+                    // this.rating = book[0].rating
+                    // this.status = book[0].status
+                    // this.descripation = book[0].descripation
+                    // this.thumbnail = book[0].thubmnail
+                    
+                    
+                }
+            })
+                
+            
+        }
+    }
     onSelect(book_id:number){
-        this.router.navigate(['/book-edit'+'/'+this.bookId])
+        console.log('inside seect')
+        this.bookService
+        .addBooktoLibrary(book_id,this.User_id)
+        .subscribe(response =>{
+            if(response['status'] == 'Success')
+            {
+                alert('added to Library')
+                //toastr.success('Added to library')
+                console.log(this.User_id)
+                console.log(response['status'])
+            }
+        })   
+        
     }
     onSelect1(book_id:number){
         console.log('inside seect')
@@ -78,5 +93,23 @@ export class bookDetailComponent implements OnInit
             }
         })   
         
+    }
+    onLike(book_id: number){
+        this.bookService
+        .addLike(book_id)
+        .subscribe(response =>{
+            if(response['status'] == 'Success')
+            {
+                alert('Like')
+                this.detailBook()
+                //toastr.success('Added to library')
+                console.log(this.User_id)
+                console.log(response['data'])
+            }
+        })   
+    }
+
+    onSelect2(book_id:number){
+        this.router.navigate(['/show-pdf'+'/'+book_id])
     }
 }

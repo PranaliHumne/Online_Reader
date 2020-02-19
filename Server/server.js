@@ -9,6 +9,8 @@ const viewRouter = require('./view')
 const likeRouter = require('./Like')
 const commentsRouter = require('./comments')
 const userHomePg = require('./user_HomePg')
+const editProfile = require('./profile')
+
 
 const app = express()
 
@@ -30,6 +32,7 @@ app.use('/view',viewRouter)
 app.use('/like',likeRouter)
 app.use('/comments',commentsRouter)
 app.use('/user_home', userHomePg)
+app.use('/editProfile', editProfile)
 
 
 app.listen( 4000,'0.0.0.0',()=>{

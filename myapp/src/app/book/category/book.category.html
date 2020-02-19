@@ -4,15 +4,15 @@
         <h4 *ngIf="categories.length == 0">There are no products....</h4>
         <div *ngIf="categories.length > 0">
             <div class = "col-md-2" *ngFor="let category of categories">
-            <button (click) = "onSelect(category.category_id)" class="btn btn-success">
+            <button (click) = "onSelect(category.category_id)" class="btn btn-success" style="margin: 5px">
                 {{category.category_title}}
             </button>
             </div>  
         </div>
         <div class="book" *ngIf="books.length > 0">
                 <div *ngFor="let book of books">
-                    <div class="col-md-2">
-                        <img class = "book" src="http://localhost:4000/{{book.thumbnail}}" alt="">
+                    <div class="col-md-8">
+                        <img (click) = "onSelect1(book.book_id)" class = "book" src="http://localhost:4000/{{book.thumbnail}}" alt="">
                     </div>
                    
                         <div class="title"><h3 >{{book.book_name}}</h3></div>

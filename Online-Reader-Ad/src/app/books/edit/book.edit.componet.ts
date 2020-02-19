@@ -71,7 +71,7 @@ export class BookEditComponent implements OnInit {
          }
 
     ngOnInit() {
-        this.onUpdate()
+        
      }
 
     onFileChange(event) {

@@ -52,7 +52,6 @@ export class BookAddComponent implements OnInit {
     onSelectFile(event) {
         console.log("Inside Sellect File")
         this.thumbnail = event.target.files[0]
-        debugger;
         console.log(event.target.files[0]+this.thumbnail) 
         
       }    
@@ -61,7 +60,6 @@ export class BookAddComponent implements OnInit {
     onSelectFile2(event) {
         console.log("Inside Select2 File")
         this.bookFile = event.target.files[0]  
-        debugger;
         console.log(event.target.files[0]+this.bookFile) 
         
       }

@@ -1,0 +1,32 @@
+<h1 *ngIf="book != undifined"></h1> 
+<div class="book_detail_container" *ngIf="book != undefined">
+
+    <div class="book_image_container col-md-4">
+        <i class="book_image ">
+            <img src="http://localhost:4000/{{book[0].thumbnail}}" alt="">
+        </i>
+    </div>
+
+    <div class="book_detail_1 col-md-8" >
+        <h2 class="book_name">{{book[0].book_name}}</h2>
+        <p class="category">{{book[0].category_title}}</p>
+        <p class="author_name">{{book[0].auther_name}}</p>
+        <p class="rating">
+            <strong>Rating:{{book[0].rating}}/5 </strong> 
+        </p>
+        <div class="book_about">
+            <span>About</span>
+            <p>{{book[0].descripation}}</p>
+            
+         </div>
+         <div><a  class="btn btn-success "><i class="glyphicon glyphicon-plus"></i></a>
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    <i class="glyphicon glyphicon-thumbs-up"></i>
+              </button>
+         </div>
+
+    </div>
+
+    
+
+</div>

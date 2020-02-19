@@ -12,11 +12,13 @@ import { UserHomePageService } from '../home.service';
 export class SearchBookComponent implements OnInit {
     book_name = ''
     book = []
+    book_id = 0
     constructor(private router : Router,
        private service : UserHomePageService  ) { 
        }
 
-    ngOnInit() { }
+    ngOnInit() { 
+    }
 
     loadSearchBook(){
         if(this.book_name.length >= 0)
@@ -28,12 +30,17 @@ export class SearchBookComponent implements OnInit {
             if(response['status'] == 'Success'){
                 this.book = response['data']
                 console.log(this.book)
+                this.book_name = this.book_name
             }else{
                 alert('error')
                 console.log(response['error'])
             }
         })
         }
+    }
+    onSelect1(book_id:number){
+        this.router.navigate(['/book-detail'+'/'+book_id])
+      
     }
     
 }
